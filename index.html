@@ -72,7 +72,7 @@
                 .attr("class", "graticule")
                 .attr("d", path);
 
-            d3.json('http://miht.github.io/Viz/eq_subindex.json', function(error, mockdata) {
+            d3.json('./eq_subindex.json', function(error, mockdata) {
                 if (error) return console.error(error);
                 console.log('mockdata',mockdata);
                 mapdata = mockdata;
@@ -90,7 +90,7 @@
                 //         return;
                 //     }
                 // }
-                d3.json('http://miht.github.io/Viz/world.json', function(error, world) {
+                d3.json('./world.json', function(error, world) {
                     if (error) return console.error(error);
                     console.log('world',world);
                     processWorldD(world, data);
