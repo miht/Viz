@@ -176,9 +176,10 @@
                     .remove();
                 // d3.selectAll('.subunit.ca'+datum.id).transition()
                 //     .style('fill', '#aac4ff');
-                d3.selectAll('path.subunit.ca'+datum.id).transition()
-                    .on('click',null)
-                    .style('fill', '#aac4ff');
+                d3.selectAll('.subunit.ca'+datum.id)
+                    on('click', null)
+                    .transition()
+                        .style('fill', '#aac4ff');
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
