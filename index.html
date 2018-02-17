@@ -162,6 +162,9 @@
             }
 
             function coutryclicked(datum, index) {
+
+                console.log('clicked on ' + datum.id);
+
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit.ca'+datum.id).transition()
                     .style('fill', '#aac4ff');
