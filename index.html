@@ -174,8 +174,10 @@
                     })
                     .style('fill', '#ffffff')
                     .remove();
-                d3.selectAll('.subunit.ca'+datum.id).transition()
-                    .on('click', null)
+                // d3.selectAll('.subunit.ca'+datum.id).transition()
+                //     .style('fill', '#aac4ff');
+                d3.selectAll('path.subunit.ca'+datum.id).transition()
+                    .on('click',null)
                     .style('fill', '#aac4ff');
             };
             function heatColor(d) {
