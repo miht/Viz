@@ -28,8 +28,8 @@
         </style>
     </head>
     <body>
-        <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-        <script src="//d3js.org/topojson.v1.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://unpkg.com/topojson@3"></script>
         <script>
             /* JavaScript goes here. */
             // globals used in graph
@@ -72,7 +72,7 @@
                 .attr("class", "graticule")
                 .attr("d", path);
 
-            d3.json('mockelasticdata.json', function(error, mockdata) {
+            d3.json('eq_subindex.json', function(error, mockdata) {
                 if (error) return console.error(error);
                 console.log('mockdata',mockdata);
                 mapdata = mockdata;
