@@ -163,6 +163,8 @@
 
             function coutryclicked(datum, index) {
                 //filter event for this country should be applied here
+                d3.selectAll('.subunit-label.ca'+datum.id).transition()
+                    .style('color', '#aac4ff');
                 d3.selectAll('.subunit')
                     .filter(function(d) {
                         return !d.id == datum.id;
@@ -170,7 +172,7 @@
                     })
                     .transition()
                         .style('color', '#aac4ff')
-                        delay(1000)
+                        .delay(1000)
                         .remove();
             };
             function heatColor(d) {
