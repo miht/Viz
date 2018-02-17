@@ -167,7 +167,7 @@
                     .style('fill', '#aac4ff');
                 d3.selectAll('.subunit')
                     .filter(function(d) {
-                        console.log('comparing d = ' + d.id + ' with datum = ' + datum);
+                        console.log('comparing d = ' + d.id + ' with datum = ' + datum.id);
                         return !d.id == datum.id;
                     })
                     .transition()
