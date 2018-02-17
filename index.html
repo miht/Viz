@@ -50,8 +50,9 @@
             var graticule = d3.geo.graticule();
             // SVG related definitions
             var svg = d3.select('body').append('svg')
-                        .attr({'width': width, 'height': height})
-                        .append('g');
+                        .attr({'width': width, 'height': height});
+            var g = svg.append('g');
+            
             active = d3.select(null);
             var filter = svg.append('defs')
                 .append('filter')
