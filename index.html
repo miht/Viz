@@ -163,7 +163,7 @@
 
             function coutryclicked(datum, index) {
                 //filter event for this country should be applied here
-                d3.selectAll('.subunit')
+                d3.selectAll('path.subunit')
                     .filter(function(d) {
                         return !d.id == datum.id;
                     })
