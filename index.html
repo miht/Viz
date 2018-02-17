@@ -52,6 +52,7 @@
             var svg = d3.select('body').append('svg')
                         .attr({'width': width, 'height': height})
                         .append('g');
+            active = d3.select(null);
             var filter = svg.append('defs')
                 .append('filter')
                 .attr({'x':0, 'y':0, 'width':1, 'height':1, 'id':'gray-background'});
@@ -74,7 +75,8 @@
             svg.append("path")
                 .datum(graticule)
                 .attr("class", "graticule")
-                .attr("d", path);
+                .attr("d", path)
+                .on('click', reset);
 
             d3.json('./eq_subindex.json', function(error, mockdata) {
                 if (error) return console.error(error);
@@ -166,8 +168,9 @@
             }
 
             function coutryclicked(datum, index) {
-
-                console.log('clicked on ' + datum.id);
+                if (active.node() === this) return reset();
+                active.classed("active", false);
+                active = d3.select(this).classed("active", true);
 
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit').transition()
@@ -180,10 +183,11 @@
                 // d3.selectAll('.subunit.ca'+datum.id).transition()
                 //     .style('fill', '#aac4ff');
                 d3.selectAll('.subunit.ca'+datum.id)
-                    .on('click', null)
+                    //.on('click', null)
                     .on('mouseover', null).on('mouseout', null)
                     .transition()
                         .style('fill', '#aac4ff');
+                zoomOnCountry(datum);
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
@@ -202,10 +206,6 @@
 
             //if country country is clicked on
             function zoomOnCountry(d) {
-              if (active.node() === this) return reset();
-              active.classed("active", false);
-              active = d3.select(this).classed("active", true);
-
               var bounds = path.bounds(d),
                   dx = bounds[1][0] - bounds[0][0],
                   dy = bounds[1][1] - bounds[0][1],
