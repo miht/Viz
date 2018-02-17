@@ -170,7 +170,7 @@
                     .style('fill', '#aac4ff');
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
-                        console.log(!String(d.id) === String(datum.id));
+                        console.log('d ' + String(d.id) + ' datum ' +  String(datum.id));
                         return !String(d.id) === String(datum.id);
                     })
                     .style('fill', '#000000')
