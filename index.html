@@ -167,10 +167,10 @@
                     .style('fill', '#aac4ff');
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
+                        console.log(!String(d.id) === String(datum.id));
                         return !String(d.id) === String(datum.id);
                     })
                     .style('fill', '#000000')
-                    .delay(1)
                     .remove();
             };
             function heatColor(d) {
