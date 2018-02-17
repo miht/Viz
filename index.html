@@ -244,8 +244,8 @@
             }
 
             function zoomed() {
-              g.style("stroke-width", 1.5 / d3.event.scale + "px");
-              g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+              svg.style("stroke-width", 1.5 / d3.event.scale + "px");
+              svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
             }
 
             // If the drag behavior prevents the default click,
