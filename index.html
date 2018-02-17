@@ -168,7 +168,7 @@
                 d3.selectAll('.subunit')
                     .filter(function(d) {
                         // console.log('comparing d = ' + d.id + ' with datum = ' + datum.id);
-                        return !String.valueOf(d.id).equals(String.valueOf(datum.id));
+                        return !String(d.id).equals(String(datum.id));
                     })
                     .transition()
                         .style('fill', '#000000')
