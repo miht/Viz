@@ -165,15 +165,13 @@
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit.ca'+datum.id).transition()
                     .style('fill', '#aac4ff');
-                d3.selectAll('.subunit')
+                d3.selectAll('.subunit').transition()
                     .filter(function(d) {
-                        // console.log('comparing d = ' + d.id + ' with datum = ' + datum.id);
                         return !String(d.id) === String(datum.id);
                     })
-                    .transition()
-                        .style('fill', '#000000')
-                        .delay(1)
-                        .remove();
+                    .style('fill', '#000000')
+                    .delay(1)
+                    .remove();
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
