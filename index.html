@@ -222,16 +222,14 @@
                   scale = .9 / Math.max(dx / width, dy / height),
                   translate = [width / 2 - scale * x, height / 2 - scale * y];
 
-                  projection.transition()
-                    .fitSize([dx, dy], d);
+                  projection.fitSize([dx, dy], d);
             }
 
             function reset() {
               active.classed("active", false);
               active = d3.select(null);
 
-              projection.transition()
-                .fitSize([width, height], svg);
+              projection.fitSize([width, height], svg);
             }
         </script>
 
