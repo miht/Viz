@@ -101,7 +101,7 @@
             function processWorldD(world, data) {
                     for(var idx=0; idx < data.length; idx++) {
                         var cName = data[idx].country;
-                        var cIndex = (1 - parseInt(data[idx].eqsubindex)).toString();
+                        var cIndex = (1.0 - parseFloat(data[idx].eqsubindex)).toString();
                         // var cCode = data.aggregations.world_map.buckets[idx].key.toUpperCase();
                         // var doc_count = data.aggregations.world_map.buckets[idx].doc_count;
                         for(var wdx=0; wdx < world.objects.subunits.geometries.length; wdx++) {
