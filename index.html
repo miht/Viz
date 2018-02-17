@@ -166,16 +166,15 @@
                 console.log('clicked on ' + datum.id);
 
                 //filter event for this country should be applied here
-                d3.selectAll('.subunit.ca'+datum.id).transition()
-                    .style('fill', '#aac4ff');
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
                         var equal = String(d.id) === String(datum.id);
-                        console.log('d ' + String(d.id) + ', datum ' +  String(datum.id) + ', equal? ' + equal);
                         return !equal;
                     })
-                    .style('fill', '#000000')
+                    .style('fill', '#111111')
                     .remove();
+                d3.selectAll('.subunit.ca'+datum.id).transition()
+                    .style('fill', '#aac4ff');
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
