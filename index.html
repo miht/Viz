@@ -52,7 +52,7 @@
             var svg = d3.select('body').append('svg')
                         .attr({'width': width, 'height': height});
             var g = svg.append('g');
-            
+
             active = d3.select(null);
             var filter = svg.append('defs')
                 .append('filter')
@@ -215,7 +215,7 @@
                   scale = .9 / Math.max(dx / width, dy / height),
                   translate = [width / 2 - scale * x, height / 2 - scale * y];
 
-              svg.g.transition()
+              g.transition()
                   .duration(750)
                   .style("stroke-width", 1.5 / scale + "px")
                   .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
@@ -225,7 +225,7 @@
               active.classed("active", false);
               active = d3.select(null);
 
-              svg.g.transition()
+              g.transition()
                   .duration(750)
                   .style("stroke-width", "1.5px")
                   .attr("transform", "");
