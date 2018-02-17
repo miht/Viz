@@ -163,11 +163,14 @@
 
             function coutryclicked(datum, index) {
                 //filter event for this country should be applied here
-                console.log('coutryclicked datum', datum);
-                var countries = svg.selectAll('path.subunit')
-                d3.selectAll('.subunit.ca'+datum.id).transition()
-                    .style('fill', '#cc6699');
-            }
+                svg.selectAll('path.subunit')
+                    .filter(function(d)) {
+                        return !d.id == datum.id;
+                    })
+                    .transition()
+                        .style('color', '#aac4ff')
+                        .remove();
+            };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
                 if (!d.properties.doc_count) return '#F0F0F0';
