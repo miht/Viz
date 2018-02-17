@@ -164,6 +164,9 @@
             function coutryclicked(datum, index) {
                 //filter event for this country should be applied here
                 console.log('coutryclicked datum', datum);
+                var countries = svg.selectAll('path.subunit')
+                d3.selectAll('.subunit.ca'+datum.id).transition()
+                    .style('fill', '#cc6699');
             }
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
