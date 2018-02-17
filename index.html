@@ -174,7 +174,9 @@
                     .style('fill', '#ffffff')
                     .remove();
                 d3.selectAll('.subunit.ca'+datum.id).transition()
-                    .style('fill', '#aac4ff');
+                    .on('click', null)
+                    .on('mouseover',null).on('mouseout',null)
+                    .style('fill', '#aac4ff')
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
