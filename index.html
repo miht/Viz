@@ -164,14 +164,15 @@
             function coutryclicked(datum, index) {
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit.ca'+datum.id).transition()
-                    .style('color', '#aac4ff');
+                    .style('fill', '#aac4ff');
                 d3.selectAll('.subunit')
                     .filter(function(d) {
+                        console.log('filter function');
                         return !d.id == datum.id;
                     })
                     .transition()
-                        .style('color', '#aac4ff')
-                        .delay(1000)
+                        .style('fill', '#000000')
+                        .delay(1)
                         .remove();
             };
             function heatColor(d) {
