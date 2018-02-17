@@ -165,11 +165,12 @@
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit')
                     .filter(function(d) {
-                        //return !d.id == datum.id;
+                        return !d.id == datum.id;
                         return true;
                     })
                     .transition()
                         .style('color', '#aac4ff')
+                        delay(1000)
                         .remove();
             };
             function heatColor(d) {
