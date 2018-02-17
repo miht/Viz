@@ -41,7 +41,7 @@
             // projection definitions
             var projection = d3.geo.mercator()
                 .scale((width + 1) / 2 / Math.PI)
-                .translate([width/2 + 200, height/2])
+                .translate([width/2, height/2])
                 .precision(.1);
             var path = d3.geo.path().projection(projection);
             var graticule = d3.geo.graticule();
@@ -171,7 +171,7 @@
                         var equal = String(d.id) === String(datum.id);
                         return !equal;
                     })
-                    .style('fill', '#111111')
+                    .style('fill', '#ffffff')
                     .remove();
                 d3.selectAll('.subunit.ca'+datum.id).transition()
                     .style('fill', '#aac4ff');
