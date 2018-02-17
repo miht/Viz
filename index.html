@@ -130,6 +130,7 @@
                         .attr('d', path)
                         .on('mouseover',mouseoverLegend).on('mouseout',mouseoutLegend)
                         .on('click', coutryclicked);
+                    console.log('RUS subunit',d3.selectAll('.subunit.caRUS'));
 
                     countries.append('svg:text')
                         .attr('class', function(d){ return 'subunit-label la'+d.id+d.properties.name.replace(/[ \.#']+/g,''); })
