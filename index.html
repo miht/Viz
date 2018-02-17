@@ -5,6 +5,10 @@
         <meta charset="utf-8">
         <style>
             /* CSS goes here. */
+            .background {
+                fill: none;
+                pointer-events: all;
+            }
             .subunit {
                 fill: none;
                 stroke: #FFF;
@@ -51,6 +55,11 @@
             // SVG related definitions
             var svg = d3.select('body').append('svg')
                         .attr({'width': width, 'height': height});
+            svg.append("rect")
+                .attr("class", "background")
+                .attr("width", width)
+                .attr("height", height)
+                .on("click", reset);
             var g = svg.append('g');
 
             active = d3.select(null);
@@ -77,7 +86,6 @@
                 .datum(graticule)
                 .attr("class", "graticule")
                 .attr("d", path)
-                .on('click', reset);
 
             d3.json('./eq_subindex.json', function(error, mockdata) {
                 if (error) return console.error(error);
