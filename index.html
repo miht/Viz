@@ -217,8 +217,8 @@
                     var equal = String(d.id) === String(datum.id);
                     return !equal;
                 })
-                .style('fill', '#ffffff')
-                .selectAll('.subunit')
+                .style('fill', '#ffffff');
+                d3.selectAll('.subunit')
                     .on('mouseover', null).on('mouseout', null);
 
                 // console.log(d3.selectAll('.subunit'));
