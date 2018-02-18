@@ -38,7 +38,7 @@
             // globals used in graph
             var mapdata = {};
             var palette = ['#009933','#669900','#99cc00','#cccc00','#c7dc09','#edf933','#ffcc00', '#ff9933', '#ff6600','#ff5050'];
-            var width = 960, height = 960, centered;
+            var width = 960, height = 960, active = d3.select(null);
             var minDocCount = 0, quantiles = {};
             // projection definitions
             var projection = d3.geo.mercator()
@@ -60,7 +60,8 @@
                 .attr("class", "background")
                 .attr("width", width)
                 .attr("height", height)
-                .attr('fill', 'white');
+                .attr('fill', 'white')
+                .on("click", reset);
 
             var filter = svg.append('defs')
                 .append('filter')
@@ -208,8 +209,9 @@
             }
 
             function center(d) {
-                console.log(d);
-              var x, y, k;
+                if (active.node() === this) return reset();
+                  active.classed("active", false);
+                  active = d3.select(this).classed("active", true);
 
               var bounds = path.bounds(d),
                   dx = bounds[1][0] - bounds[0][0],
@@ -219,30 +221,23 @@
                   scale = .9 / Math.max(dx / width, dy / height),
                   translate = [width / 2 - scale * x, height / 2 - scale * y];
 
-              if (d && centered !== d) {
-                  console.log("Activated!");
-                var centroid = path.centroid(d);
-                console.log(centroid);
-                x = centroid[0];
-                y = centroid[1];
-                k = 4;
-                centered = d;
-              } else {
-                  console.log("Dectivated!");
-                x = width / 2;
-                y = height / 2;
-                k = 1;
-                centered = null;
-              }
-              console.log(d3.selectAll("path"));
               d3.selectAll("path")
               .classed("active", centered && function(d) { return d === centered; })
               .transition()
-                  .duration(750)
-                  //.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
-                  .attr("transform", "translate(" + translate + ")scale(" + scale + ")")
-                  .style("stroke-width", 1.5 / k + "px");
+                .duration(750)
+                .style("stroke-width", 1.5 / scale + "px")
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
               }
+
+              function reset() {
+                  active.classed("active", false);
+                  active = d3.select(null);
+
+                  g.transition()
+                      .duration(750)
+                      .style("stroke-width", "1.5px")
+                      .attr("transform", "");
+                }
 
         </script>
 
