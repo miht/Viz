@@ -216,6 +216,7 @@
                 .selectAll('.subunit')
                     .filter(function(d) {
                         var equal = String(d.id) === String(datum.id);
+                        console.log("heehe");
                         return !equal;
                     })
                     .style('fill', '#ffffff')
