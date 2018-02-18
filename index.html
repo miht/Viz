@@ -217,8 +217,11 @@
                     var equal = String(d.id) === String(datum.id);
                     return !equal;
                 })
-                .style('fill', '#ffffff');
+                .attr("opacity", 0.3);
+                // .style('fill', '#ffffff');
+
                 d3.selectAll('.subunit')
+                    .on('click', reset)
                     .on('mouseover', null).on('mouseout', null);
 
                 // console.log(d3.selectAll('.subunit'));
@@ -235,9 +238,10 @@
                   d3.selectAll("path").transition()
                       .duration(750)
                       .style("stroke-width", "1.5px")
+                      .attr("opacity", 1.0)
                       .attr("transform", "");
                   d3.selectAll('.subunit').transition()
-                    .style('fill', function(d){ return heatColor(d)})
+                    .on('click', coutryclicked)
                     .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
                 }
 
