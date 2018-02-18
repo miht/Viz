@@ -213,7 +213,7 @@
                 .duration(750)
                 .style("stroke-width", 1.5 / scale + "px")
                 .attr("transform", "translate(" + translate + ")scale(" + scale + ")")
-                .selectAll('subunit')
+                .selectAll('.subunit')
                     .filter(function(d) {
                         var equal = String(d.id) === String(datum.id);
                         return !equal;
