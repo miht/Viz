@@ -212,16 +212,22 @@
               .transition()
                 .duration(750)
                 .style("stroke-width", 1.5 / scale + "px")
-                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")")
+                .filter(function(d) {
+                    var equal = String(d.id) === String(datum.id);
+                    return !equal;
+                })
+                .style('fill', '#ffffff')
+                .remove;
 
-                console.log(d3.selectAll('.subunit'));
-                d3.selectAll('.subunit').transition()
-                    .filter(function(d) {
-                        var equal = String(d.id) === String(datum.id);
-                        return !equal;
-                    })
-                    .style('fill', '#ffffff')
-                    .remove();
+                // console.log(d3.selectAll('.subunit'));
+                // d3.selectAll('.subunit').transition()
+                //     .filter(function(d) {
+                //         var equal = String(d.id) === String(datum.id);
+                //         return !equal;
+                //     })
+                //     .style('fill', '#ffffff')
+                //     .remove();
               }
 
               function reset() {
