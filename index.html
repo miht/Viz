@@ -14,7 +14,7 @@
             }
             text.subunit-label {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                font-size: 34px;
+                font-size: 14px;
                 font-weight: 300;
                 text-anchor: middle;
                 fill: #000;
@@ -50,6 +50,12 @@
             // SVG related definitions
             var svg = d3.select('body').append('svg')
                         .attr({'width': width, 'height': height});
+            var label = svg.append("text").attr("x", (width / 2))
+                .attr("y", 0 - (margin.top / 2))
+                .attr("text-anchor", "middle")
+                .style("font-size", "36px")
+                .text("");
+
             svg.append("rect")
                 .attr("class", "background")
                 .attr("width", width)
@@ -160,6 +166,7 @@
                     //.style('display', 'inline-block');
                 d3.selectAll('.subunit.ca'+datum.id)
                     .style('fill', '#aac4ff');
+                label.text(datum.properties.name.replace(/[ \.#']+/g,''));
             }
 
             function mouseoutLegend(datum, index) {
@@ -167,6 +174,7 @@
                     .style('display', 'none');
                 d3.selectAll('.subunit.ca'+datum.id)
                     .style('fill', heatColor(datum));
+                label.text("");
             }
 
             function coutryclicked(datum, index) {
