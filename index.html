@@ -162,7 +162,7 @@
             }
 
             function mouseoverLegend(datum, index) {
-                d3.selectAll('.subunit-label.la'+datum.id+datum.properties.name.replace(/[ \.#']+/g,''));
+                d3.selectAll('.subunit-label.la'+datum.id+datum.properties.name.replace(/[ \.#']+/g,''))
                     .style('display', 'inline-block');
                 d3.selectAll('.subunit.ca'+datum.id)
                     .style('fill', '#aac4ff');
