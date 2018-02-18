@@ -143,7 +143,6 @@
                         .on('mouseover',mouseoverLegend).on('mouseout',mouseoutLegend)
                         .on('click', coutryclicked);
                     console.log('RUS subunit',d3.selectAll('.subunit.caRUS'));
-                    console.log(countries);
 
                     countries.append('svg:text')
                         .attr('class', function(d){ return 'subunit-label la'+d.id+d.properties.name.replace(/[ \.#']+/g,''); })
@@ -219,7 +218,7 @@
                     return !equal;
                 })
                 .style('fill', '#ffffff')
-                .selectAll('subunit').selectAll("*")
+                .selectAll('.subunit').selectAll(".*")
                     .on('mouseover', null).on('mouseout', null);
 
                 // console.log(d3.selectAll('.subunit'));
