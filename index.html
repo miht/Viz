@@ -200,7 +200,7 @@
             }
 
             function center(datum) {
-              var bounds = path.bounds(datum),
+              var bounds = path.bounds(d),
                   dx = bounds[1][0] - bounds[0][0],
                   dy = bounds[1][1] - bounds[0][1],
                   x = (bounds[0][0] + bounds[1][0]) / 2,
@@ -208,28 +208,20 @@
                   scale = .9 / Math.max(dx / width, dy / height),
                   translate = [width / 2 - scale * x, height / 2 - scale * y];
 
-                  console.log(d3.selectAll("path"));
               d3.selectAll("path")
               .transition()
                 .duration(750)
                 .style("stroke-width", 1.5 / scale + "px")
-                .attr("transform", "translate(" + translate + ")scale(" + scale + ")")
-                .selectAll('.subunit')
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
+
+                console.log(d3.selectAll('.subunit'));
+                d3.selectAll('.subunit').transition()
                     .filter(function(d) {
                         var equal = String(d.id) === String(datum.id);
-                        console.log("heehe");
                         return !equal;
                     })
                     .style('fill', '#ffffff')
                     .remove();
-
-                // d3.selectAll('.subunit').transition()
-                //     .filter(function(d) {
-                //         var equal = String(d.id) === String(datum.id);
-                //         return !equal;
-                //     })
-                //     .style('fill', '#ffffff')
-                //     .remove();
               }
 
               function reset() {
