@@ -218,6 +218,7 @@
                     return !equal;
                 })
                 .style('fill', '#ffffff')
+                .on('mouseover', null).on('mouseout', null)
                 .remove;
 
                 // console.log(d3.selectAll('.subunit'));
@@ -234,7 +235,8 @@
                   d3.selectAll("path").transition()
                       .duration(750)
                       .style("stroke-width", "1.5px")
-                      .attr("transform", "");
+                      .attr("transform", "")
+                      .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
                 }
 
         </script>
