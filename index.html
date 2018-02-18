@@ -226,7 +226,7 @@
               d3.selectAll("path")
               .classed("active", centered && function(d) { return d === centered; });
 
-              d3.selectAll('g').transition()
+              d3.selectAll('path').transition()
                   .duration(750)
                   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
                   .style("stroke-width", 1.5 / k + "px");
