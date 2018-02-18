@@ -207,12 +207,14 @@
               var x, y, k;
 
               if (d && centered !== d) {
+                  console.log("Activated!");
                 var centroid = path.centroid(d);
                 x = centroid[0];
                 y = centroid[1];
                 k = 4;
                 centered = d;
               } else {
+                  console.log("Dectivated!");
                 x = width / 2;
                 y = height / 2;
                 k = 1;
