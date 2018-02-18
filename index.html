@@ -172,7 +172,7 @@
             }
 
             function coutryclicked(datum, index) {
-                center(d);
+                center(datum);
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
