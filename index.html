@@ -5,17 +5,10 @@
         <meta charset="utf-8">
         <style>
             /* CSS goes here. */
-            .background {
-                fill: none;
-                pointer-events: all;
-            }
             .subunit {
                 fill: none;
                 stroke: #FFF;
                 stroke-width: 1px;
-            }
-            .subunit.active {
-                fill: '#aac4ff';
             }
             text.subunit-label {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -59,9 +52,7 @@
                 .attr("class", "background")
                 .attr("width", width)
                 .attr("height", height)
-                .on("click", reset);
 
-            active = d3.select(null);
             var filter = svg.append('defs')
                 .append('filter')
                 .attr({'x':0, 'y':0, 'width':1, 'height':1, 'id':'gray-background'});
@@ -176,10 +167,6 @@
             }
 
             function coutryclicked(datum, index) {
-                if (active.node() === this) return reset();
-                active.classed("active", false);
-                active = d3.select(this).classed("active", true);
-
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
