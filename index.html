@@ -236,8 +236,9 @@
                       .duration(750)
                       .style("stroke-width", "1.5px")
                       .attr("transform", "");
-                  d3.selectAll('.subunit')
-                        .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
+                  d3.selectAll('.subunit').transition()
+                    .style('fill', heatColor(datum));
+                    .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
                 }
 
         </script>
