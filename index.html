@@ -212,15 +212,22 @@
               .transition()
                 .duration(750)
                 .style("stroke-width", 1.5 / scale + "px")
-                .attr("transform", "translate(" + translate + ")scale(" + scale + ")");
-
-                d3.selectAll('.subunit').transition()
+                .attr("transform", "translate(" + translate + ")scale(" + scale + ")")
+                .selectAll('subunit')
                     .filter(function(d) {
                         var equal = String(d.id) === String(datum.id);
                         return !equal;
                     })
                     .style('fill', '#ffffff')
                     .remove();
+
+                // d3.selectAll('.subunit').transition()
+                //     .filter(function(d) {
+                //         var equal = String(d.id) === String(datum.id);
+                //         return !equal;
+                //     })
+                //     .style('fill', '#ffffff')
+                //     .remove();
               }
 
               function reset() {
