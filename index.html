@@ -10,7 +10,7 @@
                 stroke: #FFF;
                 stroke-width: 1px;
             }
-            .active {
+            .subunit.active {
             }
             text.subunit-label {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -222,7 +222,7 @@
                   translate = [width / 2 - scale * x, height / 2 - scale * y];
 
               d3.selectAll("path")
-              .classed("active", centered && function(d) { return d === centered; })
+              // .classed("active", centered && function(d) { return d === centered; })
               .transition()
                 .duration(750)
                 .style("stroke-width", 1.5 / scale + "px")
@@ -233,7 +233,7 @@
                   active.classed("active", false);
                   active = d3.select(null);
 
-                  g.transition()
+                  d3.selectAll("path").transition()
                       .duration(750)
                       .style("stroke-width", "1.5px")
                       .attr("transform", "");
