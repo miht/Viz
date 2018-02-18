@@ -211,6 +211,7 @@
             function center(d) {
                 if (active.node() === this) return reset();
                   active.classed("active", false);
+                  console.log(d3.select(this));
                   active = d3.select(this).classed("active", true);
 
               var bounds = path.bounds(d),
