@@ -54,11 +54,6 @@
             // SVG related definitions
             var svg = d3.select('body').append('svg')
                         .attr({'width': width, 'height': height});
-            var label = svg.append("text").attr("x", (width / 2))
-                .attr("y", (height / 2) + 200)
-                .attr("text-anchor", "middle")
-                .style("font-size", "36px")
-                .text("");
 
             svg.append("rect")
                 .attr("class", "background")
