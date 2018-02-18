@@ -235,9 +235,9 @@
                   d3.selectAll("path").transition()
                       .duration(750)
                       .style("stroke-width", "1.5px")
-                      .attr("transform", "")
-                      .selectAll('subunit').selectAll("*")
-                            .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
+                      .attr("transform", "");
+                  d3.selectAll('.subunit')
+                        .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
                 }
 
         </script>
