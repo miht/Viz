@@ -165,14 +165,15 @@
                 d3.selectAll('.subunit-label.la'+datum.id+datum.properties.name.replace(/[ \.#']+/g,''))
                     .style('display', 'inline-block');
                 d3.selectAll('.subunit.ca'+datum.id)
-                    .style('fill', '#aac4ff');
+                    .style('stroke', #000);
             }
 
             function mouseoutLegend(datum, index) {
                 d3.selectAll('.subunit-label.la'+datum.id+datum.properties.name.replace(/[ \.#']+/g,''))
                     .style('display', 'none');
                 d3.selectAll('.subunit.ca'+datum.id)
-                    .style('fill', heatColor(datum));
+                    .style('stroke', '');
+                    // .style('fill', heatColor(datum));
             }
 
             function coutryclicked(datum, index) {
