@@ -178,14 +178,12 @@
                     })
                     .style('fill', '#ffffff')
                     .remove();
-                // d3.selectAll('.subunit.ca'+datum.id).transition()
-                //     .style('fill', '#aac4ff');
                 d3.selectAll('.subunit.ca'+datum.id)
                     //.on('click', null)
                     .on('mouseover', null).on('mouseout', null)
                     .transition()
                         .style('color', '#aac4ff');
-                center(datum);
+                // center(datum);
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
