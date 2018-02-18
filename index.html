@@ -11,7 +11,6 @@
                 stroke-width: 1px;
             }
             .active {
-                fill: '#aac4ff';
             }
             text.subunit-label {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -225,8 +224,7 @@
               console.log(d3.selectAll("path"));
               d3.selectAll("path")
               .classed("active", centered && function(d) { return d === centered; });
-
-              d3.selectAll('path').transition()
+              .transition()
                   .duration(750)
                   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
                   .style("stroke-width", 1.5 / k + "px");
