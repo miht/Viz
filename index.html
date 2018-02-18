@@ -143,7 +143,7 @@
                         .on('mouseover',mouseoverLegend).on('mouseout',mouseoutLegend)
                         .on('click', coutryclicked);
                     console.log('RUS subunit',d3.selectAll('.subunit.caRUS'));
-                    console.log(world);
+                    console.log(countries);
 
                     countries.append('svg:text')
                         .attr('class', function(d){ return 'subunit-label la'+d.id+d.properties.name.replace(/[ \.#']+/g,''); })
