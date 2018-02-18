@@ -165,6 +165,7 @@
                 d3.selectAll('.subunit-label.la'+datum.id+datum.properties.name.replace(/[ \.#']+/g,''))
                     .style('display', 'inline-block');
                 d3.selectAll('.subunit.ca'+datum.id)
+                    .moveToFront()
                     .style('stroke', '#000');
             }
 
