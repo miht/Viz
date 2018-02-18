@@ -32,6 +32,12 @@
         <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="https://unpkg.com/topojson@3"></script>
         <script>
+            d3.selection.prototype.moveToFront = function() {
+                return this.each(function(){
+                this.parentNode.appendChild(this);
+                });
+            };
+
             /* JavaScript goes here. */
             // globals used in graph
             var mapdata = {};
