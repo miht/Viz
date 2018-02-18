@@ -219,7 +219,7 @@
                 k = 1;
                 centered = null;
               }
-              svg.selectAll("path")
+              d3.selectAll("path")
               .classed("active", centered && function(d) { return d === centered; });
 
               svg.transition()
