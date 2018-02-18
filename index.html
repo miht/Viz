@@ -208,6 +208,7 @@
                   scale = .9 / Math.max(dx / width, dy / height),
                   translate = [width / 2 - scale * x, height / 2 - scale * y];
 
+                  console.log(d3.selectAll("path"));
               d3.selectAll("path")
               .transition()
                 .duration(750)
