@@ -167,7 +167,6 @@
                     .style('display', 'inline-block');
                 d3.selectAll('.subunit.ca'+datum.id)
                     .style('fill', '#aac4ff');
-                // label.text(datum.properties.name.replace(/[ \.#']+/g,''));
             }
 
             function mouseoutLegend(datum, index) {
@@ -175,7 +174,6 @@
                     .style('display', 'none');
                 d3.selectAll('.subunit.ca'+datum.id)
                     .style('fill', heatColor(datum));
-                // label.text("");
             }
 
             function coutryclicked(datum, index) {
@@ -189,7 +187,7 @@
                     .remove();
                 d3.selectAll('.subunit.ca'+datum.id)
                     //.on('click', null)
-                    .on('mouseover', null).on('mouseout', null)
+                    //.on('mouseover', null).on('mouseout', null)
                     .transition()
                         .style('fill', '#aac4ff');
                 center(datum);
