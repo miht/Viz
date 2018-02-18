@@ -240,7 +240,7 @@
                       .style("stroke-width", "1.5px")
                       .attr("opacity", 1.0)
                       .attr("transform", "");
-                  d3.selectAll('.subunit').transition()
+                  d3.selectAll('.subunit')
                     .on('click', coutryclicked)
                     .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
                 }
