@@ -228,7 +228,7 @@
               }
               console.log(d3.selectAll("path"));
               d3.selectAll("path")
-              //.classed("active", centered && function(d) { return d === centered; })
+              .classed("active", centered && function(d) { return d === centered; })
               .transition()
                   .duration(750)
                   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
