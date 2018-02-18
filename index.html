@@ -171,7 +171,6 @@
             }
 
             function coutryclicked(datum, index) {
-                center(datum);
                 //filter event for this country should be applied here
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
@@ -187,6 +186,7 @@
                     .on('mouseover', null).on('mouseout', null)
                     .transition()
                         .style('fill', '#aac4ff');
+                center(datum);
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
@@ -204,6 +204,7 @@
             }
 
             function center(d) {
+                console.log(d);
               var x, y, k;
 
               if (d && centered !== d) {
@@ -220,6 +221,7 @@
                 k = 1;
                 centered = null;
               }
+              console.log(d3.selectAll("path"));
               d3.selectAll("path")
               .classed("active", centered && function(d) { return d === centered; });
 
