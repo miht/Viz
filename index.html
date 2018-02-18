@@ -147,8 +147,9 @@
 
                     countries.append('svg:text')
                         .attr('class', function(d){ return 'subunit-label la'+d.id+d.properties.name.replace(/[ \.#']+/g,''); })
-                        //.attr('transform', function(d) { return 'translate('+ path.centroid(d) +')'; })
-                        .attr('transform', function(d) { return 'translate('+(width-(5*d.properties.name.length))+','+(15)+')'; })
+                        .attr('transform', function(d) { return 'translate('+ path.centroid(d) +')'; })
+                        // .attr('transform', function(d) { return 'translate('+(width/2-(5*d.properties.name.length))+','+(15)+')'; })
+                        //.attr('transform', function(d) { return 'translate('+ width/2 + ')'; })
                         .attr('dy', '.35em')
                         .attr('filter', 'url(#gray-background)')
                         .append('svg:tspan')
