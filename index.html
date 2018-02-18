@@ -218,7 +218,7 @@
                     return !equal;
                 })
                 .style('fill', '#ffffff')
-                .selectAll('.subunit')
+                .selectAll('subunit').selectAll("*")
                     .on('mouseover', null).on('mouseout', null);
 
                 // console.log(d3.selectAll('.subunit'));
@@ -236,7 +236,8 @@
                       .duration(750)
                       .style("stroke-width", "1.5px")
                       .attr("transform", "")
-                      .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
+                      .selectAll('subunit').selectAll("*")
+                            .on('mouseover',mouseoverLegend).on('mouseout', mouseoutLegend);
                 }
 
         </script>
