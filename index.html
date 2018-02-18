@@ -177,6 +177,8 @@
 
             function coutryclicked(datum, index) {
                 //filter event for this country should be applied here
+                center(datum);
+
                 d3.selectAll('.subunit').transition()
                     .filter(function(d) {
                         var equal = String(d.id) === String(datum.id);
@@ -189,7 +191,6 @@
                     //.on('mouseover', null).on('mouseout', null)
                     // .transition()
                     //     .style('fill', '#aac4ff');
-                center(datum);
             };
             function heatColor(d) {
                 if (quantiles['0.95'] === 0 && minDocCount === 0) return '#F0F0F0';
