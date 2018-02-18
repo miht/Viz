@@ -159,7 +159,7 @@
                 d3.selectAll('.subunit-label.la'+datum.id+datum.properties.name.replace(/[ \.#']+/g,''));
                     //.style('display', 'inline-block');
                 d3.selectAll('.subunit.ca'+datum.id)
-                    .style('fill', '#cc6699');
+                    .style('fill', '#aac4ff');
             }
 
             function mouseoutLegend(datum, index) {
@@ -184,7 +184,7 @@
                     //.on('click', null)
                     .on('mouseover', null).on('mouseout', null)
                     .transition()
-                        .style('fill', '#aac4ff');
+                        .style('color', '#aac4ff');
                 center(datum);
             };
             function heatColor(d) {
